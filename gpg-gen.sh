@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+# Check if dependencies are met before running
+DEPS=(pass)
+for i in $DEPS; do
+  command -v $i >/dev/null 2>&1 || { error >&2 "Please install $i first"; exit 1; }
+done
+
+
 echo "Email: "
 read EMAIL
 
